@@ -69,7 +69,7 @@ def load_chart(chart_type, series, container, kw_extra, *args, **kwargs):
         elif chart_type == 'pieChart':
             chart.add_serie(y=ydata, x=xdata, extra=extra)
         elif chart_type == 'multiBarChart':
-            kwargs = series['kwargs' + axis_no]
+            kwargs = series.get('kwargs' + axis_no, {})
             chart.add_serie(name=name, y=ydata, x=xdata, extra=extra, **kwargs)
         else:
             chart.add_serie(name=name, y=ydata, x=xdata, extra=extra)
